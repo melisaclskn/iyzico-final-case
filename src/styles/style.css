@@ -1,0 +1,24 @@
+.card-container{
+    display: flex;
+    flex-direction: row  ;
+}
+.mycard{
+    display: flex;
+    flex-direction: row;
+  width:15em;
+  height: 20em;
+  background-color: bisque;
+}
+.card-columns {
+    column-count: 4;
+}
+@media screen and (max-width: 1000px) {
+    .card-columns {
+        column-count: 2;
+    }
+  }
+  @media screen and (max-width: 770px) {
+    .card-columns {
+        column-count: 1;
+    }
+  }
