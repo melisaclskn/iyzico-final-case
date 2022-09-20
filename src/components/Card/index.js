@@ -4,7 +4,7 @@ import '../../styles/style.css';
 import {
   Link
 } from "react-router-dom";
-function Card() {
+function Card(props) {
 
   const [starships, setStarships] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -16,7 +16,6 @@ function Card() {
     setIsLoading(true);
     axios.get('https://swapi.dev/api/starships/').then(res => {
       setStarships(res.data.results)
-      console.log(res.data.next,'nexttt')
       setNext(res.data.next)
     }).finally(() => {
       setIsLoading(false);
@@ -24,7 +23,6 @@ function Card() {
   }, [])
 
   const loadMore=()=>{
-    console.log("loadmore")
     axios.get(next).then(res => {
       setStarships([...starships, ...res.data.results])
       if(res.data.next==null){
