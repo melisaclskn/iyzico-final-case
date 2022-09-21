@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom"
-import axios from 'axios';
+import { getStarshipsFromId } from  '../../services/api'
 function CardDetail(props) {
     const { id } = useParams();
     const [detailShips, setDetailShips] = useState('');
     useEffect(() => {
-        axios.get(`https://swapi.dev/api/starships/${id}/`).then(res => {
-            console.log(res)
+        getStarshipsFromId(id).then(res => {
             setDetailShips(res.data)
         })
     }, [id])

@@ -1,6 +1,6 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import '../../styles/style.css';
+import { getStarships , getStarshipsAPI} from '../../services/api'
 import {
   Link
 } from "react-router-dom";
@@ -14,7 +14,7 @@ function Card(props) {
   
   useEffect(() => {
     setIsLoading(true);
-    axios.get('https://swapi.dev/api/starships/').then(res => {
+    getStarships().then(res => {
       setStarships(res.data.results)
       setNext(res.data.next)
     }).finally(() => {
@@ -23,7 +23,7 @@ function Card(props) {
   }, [])
 
   const loadMore=()=>{
-    axios.get(next).then(res => {
+    getStarshipsAPI(next).then(res => {
       setStarships([...starships, ...res.data.results])
       if(res.data.next==null){
         setButtonVisible(false);
