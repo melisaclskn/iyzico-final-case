@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom"
 import { getStarshipsFromId } from  '../../services/api'
-function CardDetail(props) {
+function CardDetail() {
+
     const { id } = useParams();
     const [detailShips, setDetailShips] = useState('');
     useEffect(() => {
@@ -11,7 +12,6 @@ function CardDetail(props) {
     }, [id])
     return (
         <div>
-
             <div>name {detailShips.name}</div>
             <div>model {detailShips.model}</div>
             <div>passengers {detailShips.passengers}</div>
@@ -22,5 +22,4 @@ function CardDetail(props) {
         </div>
     )
 }
-
 export default CardDetail
