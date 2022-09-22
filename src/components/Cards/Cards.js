@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import '../../styles/style.css';
 import { getStarships, getStarshipsAPI } from '../../services/api'
-import {
-  Link
-} from "react-router-dom";
-function Card() {
+import Card from '../Card/Card';
+function Cards() {
 
   const [starships, setStarships] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -37,25 +35,14 @@ function Card() {
       {isLoading && <p className="loading">Loading...</p>}
       {starships.map((starship, key) => {
         let result = starship?.url?.replace("https://swapi.dev/api/starships/", '')
-        console.log(result, 'result')
-        let id = result?.slice(0)
+        let id = result?.slice(0);
         return (
-          <div className="card mycard " key={key}>
-            <div className="card-body">
-              <h5 className="card-title">{starship.name}</h5>
-              <p className="card-text">Model : {starship.model}</p>
-              <p className="card-text">Hyperdrive Rating : {starship.hyperdrive_rating}</p>
-              <p className="card-text">URL : {starship.url}</p>
-              <Link to={`/cardDetail/${id}`}>
-                <span>Detail about {starship.name}</span>
-              </Link>
-            </div>
-          </div>
+          <Card key={key} name={starship.name} model={starship.model} hyperdrive_rating={starship.hyperdrive_rating} id={id} />
         )
       })}
-      {buttonVisible && !isLoading && <button className="btn btn-warning" onClick={loadMore} >Load More</button>}
+     {buttonVisible && !isLoading && <button className="btn btn-warning" onClick={loadMore} >Load More</button>}
     </div>
   )
 }
 
-export default Card
+export default Cards

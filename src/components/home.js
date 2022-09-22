@@ -1,10 +1,10 @@
 import React from 'react'
-import Card from './Card'
+import Cards from './Cards/Cards'
 function home() {
   return (
     <div>
       Home sayfası 
-      <Card/>
+      <Cards/>
     </div>
     
   )

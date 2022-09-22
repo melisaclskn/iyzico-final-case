@@ -6,7 +6,7 @@ import {
   
 } from "react-router-dom";
 import CardDetail from './components/CardDetail/index'
-import Card from './components/Card/index'
+import Cards from './components/Cards/Cards'
 import Home from './components/home'
 import './App.css';
 
@@ -21,7 +21,7 @@ function App() {
             </Route>
             <Route path="/cardDetail/:id" element={<CardDetail />}>
             </Route>
-            <Route path="/card" element={<Card />}>
+            <Route path="/cards" element={<Cards />}>
             </Route>
           </Routes>
         </div>
