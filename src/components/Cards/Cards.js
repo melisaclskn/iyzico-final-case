@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 
-import Card from "../Card/Card";
 import { API } from "../../constants";
-import { getStarships, getStarshipsAPI } from "../../services/api";
+import {
+  getImg,
+  getStarships,
+  getStarshipsAPI,
+  getAllStarships,
+} from "../../services/api";
+import Card from "../Card/Card";
 import "../../styles/style.css";
+
+(async () => {
+  const allStarships = await getAllStarships();
+  console.log("starships", allStarships);
+})();
 
 function Cards() {
   const [starships, setStarships] = useState([]);
@@ -14,9 +23,8 @@ function Cards() {
   const [imgData, setImgData] = useState([]);
 
   useEffect(() => {
-    axios.get("/db/data.json").then((res) => {
-      console.log(res.data, "ress data");
-      setImgData(res.data);
+    getImg().then((res) => {
+      setImgData(res);
     });
   }, []);
 
@@ -42,16 +50,13 @@ function Cards() {
       }
     });
   };
-
+  
   return (
     <div className="container card-columns">
+      <button onClick={getAllStarships}>get data</button>
       {isLoading && <p className="loading">Loading...</p>}
-
       {starships.map((starship, key) => {
-        let result = starship?.url?.replace(
-         `${API}`,
-          ""
-        );
+        let result = starship?.url?.replace(`${API}`, "");
         let id = result?.slice(0);
         return (
           <Card
