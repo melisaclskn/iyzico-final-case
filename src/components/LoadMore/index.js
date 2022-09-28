@@ -1,8 +1,11 @@
 import React from 'react'
 
-function LoadMore() {
+// eslint-disable-next-line react/prop-types
+function LoadMore({loadMore}) {
   return (
-    <div>LoadMore</div>
+    <button className="" onClick={loadMore}>
+          Load More
+        </button>
   )
 }
 
