@@ -1,31 +1,97 @@
-body{
-    background-color: rgb(174, 174, 174);
-    background-position: center;
-    background-size: cover;
+body {
+  background-color: #353B3F;
+  background-position: center;
+  background-size: cover;
+  font-family: 'Roboto', sans-serif;
 }
-.card-container{
-    display: flex;
-    flex-direction: row  ;
+/* .card-container {
+  display: flex;
+  flex-direction: row;
+} */
+/*Header Start*/
+.header{
+  display: inline-block;
+  background-color: rgb(158, 172, 172);
+  height: 3em;
+  position:relative;
+  width: 100%;
 }
-.mycard{
-    display: flex;
-    flex-direction: row;
-  width:15em;
-  height: 20em;
-  background-color: rgb(255, 255, 255)
+.header-title{
+  display: flex;
+  font-size: 2em;
+  width: 100%;
+  color:aliceblue
+}
+.stciky{
+  position: fixed;
+  width: 100%;
+}
+/*Header End*/
+/*Cards Start*/
+.cards-container{
+  padding-right: 30px;
+  padding-left: 30px;
+}
+/*Cards End*/
+/*Card Start*/
+.card {
+  height: 30em;
+  border:none;
+  background-color: rgb(96, 36, 36);
+}
+.card-body{
+  padding: 10px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fff;
+}
+.card-body:hover{
+  opacity: 0.9;
+}
+.card-image{
+  width:100%;
+  height: 300px;
+  object-fit: cover;
+  background-position: center;
+  background-size: contain;
+}
+.card-title{
+  font-size:1.5em;
+  display: flex;
+}
+/*
+.card-text{
+
+} */
+
+.card-button{
+  background-color: brown;
+  width: 100%;
+}
+.card-button:hover{
+  cursor: pointer;
 }
 .card-columns {
-    column-count: 4;
+  column-count: 5;
 }
 @media screen and (max-width: 1000px) {
-    .card-columns {
-        column-count: 2;
-    }
+  .card-columns {
+    column-count: 2;
   }
-  @media screen and (max-width: 770px) {
-    .card-columns {
-        column-count: 1;
-    }
+}
+@media screen and (max-width: 770px) {
+  .card-columns {
+    column-count: 1;
   }
+}
+/*Card end*/
+/*Header Start*/
 
-  
+
+.active{
+    background-color: pink;
+}
+/*Header End*/
