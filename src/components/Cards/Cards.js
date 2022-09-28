@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import { API } from "../../constants";
 import {
   getImg,
@@ -8,6 +7,8 @@ import {
   getAllStarships,
 } from "../../services/api";
 import Card from "../Card/Card";
+import SearchBar from "../SearchBar/SearchBar";
+import LoadMore from "../LoadMore/index";
 import "../../styles/style.css";
 
 function Cards() {
@@ -16,7 +17,6 @@ function Cards() {
   const [buttonVisible, setButtonVisible] = useState(true);
   const [next, setNext] = useState("");
   const [imgData, setImgData] = useState([]);
-
   const [filteredResults, setFilteredResults] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [allStarships, setAllStarships] = useState([]);
@@ -24,7 +24,6 @@ function Cards() {
   useEffect(() => {
     const getData = async () => {
       const allStarships = await getAllStarships();
-      console.log("starships", allStarships);
       setAllStarships(allStarships);
     };
     getData();
@@ -58,68 +57,52 @@ function Cards() {
       }
     });
   };
-
-  const searchItems = (searchValue) => {
-    setSearchInput(searchValue);
-    if (searchInput !== "") {
-      const filteredData = allStarships.filter((item) => {
-        return Object.values(item)
-          .join("")
-          .toLowerCase()
-          .includes(searchInput.toLowerCase());
-      });
-      setFilteredResults(filteredData);
-    } else {
-      setFilteredResults(starships);
-    }
-  };
-
   return (
-    <div className="container card-columns">
-      <button onClick={getAllStarships}>get data</button>
-      {isLoading && <p className="loading">Loading...</p>}
-      <input
-        type="text"
-        placeholder="search..."
-        onChange={(e) => searchItems(e.target.value)}
-      ></input>
-      <div>
-        {searchInput.length > 1
-          ? filteredResults.map((starship, key) => {
-              let result = starship?.url?.replace(`${API}`, "");
-              let id = result?.slice(0);
-              return (
-                <Card
-                  key={key}
-                  name={starship.name}
-                  model={starship.model}
-                  hyperdrive_rating={starship.hyperdrive_rating}
-                  id={id}
-                  imgData={imgData}
-                />
-              );
-            })
-          : starships.map((starship, key) => {
-              let result = starship?.url?.replace(`${API}`, "");
-              let id = result?.slice(0);
-              return (
-                <Card
-                  key={key}
-                  name={starship.name}
-                  model={starship.model}
-                  hyperdrive_rating={starship.hyperdrive_rating}
-                  id={id}
-                  imgData={imgData}
-                />
-              );
-            })}
+    <>
+      <SearchBar
+        setSearchInput={setSearchInput}
+        searchInput={searchInput}
+        allStarships={allStarships}
+        setFilteredResults={setFilteredResults}
+        starships={starships}
+      />
+
+      <div className="cards-container card-columns">
+        {isLoading && <p className="loading">Loading...</p>}
+        <div>
+          {searchInput.length > 1
+            ? filteredResults.map((starship, key) => {
+                let result = starship?.url?.replace(`${API}`, "");
+                let id = result?.slice(0);
+                return (
+                  <Card
+                    key={key}
+                    name={starship.name}
+                    model={starship.model}
+                    hyperdrive_rating={starship.hyperdrive_rating}
+                    id={id}
+                    imgData={imgData}
+                  />
+                );
+              })
+            : starships.map((starship, key) => {
+                let result = starship?.url?.replace(`${API}`, "");
+                let id = result?.slice(0);
+                return (
+                  <Card
+                    key={key}
+                    name={starship.name}
+                    model={starship.model}
+                    hyperdrive_rating={starship.hyperdrive_rating}
+                    id={id}
+                    imgData={imgData}
+                  />
+                );
+              })}
+        </div>
+        {buttonVisible && !isLoading && <LoadMore loadMore={loadMore} />}
       </div>
-      {buttonVisible && !isLoading && (
-        <button className="btn btn-warning" onClick={loadMore}>
-          Load More
-        </button>
-      )}
-    </div>
+    </>
   );
 }
 

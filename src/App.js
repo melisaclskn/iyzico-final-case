@@ -3,13 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
+import { getImg } from "./services/api";
 import CardDetail from "./components/CardDetail/index";
 import Cards from "./components/Cards/Cards";
-import SearchBar from "./components/SearchBar/SearchBar";
-import Home from "./components/home";
-import "./App.css";
-import { getImg } from "./services/api";
-
+import Header from "./components/Header/Header";
 function App() {
   const [imgData, setImgData] = useState([]);
   useEffect(() => {
@@ -17,19 +14,17 @@ function App() {
       setImgData(res);
     });
   }, []);
-
   return (
     <div className="App">
-      <SearchBar/>
+      <Header />
       <Router>
         <div>
           <Routes>
-            <Route path="/" element={<Home />}></Route>
+            <Route path="/" element={<Cards imgData={imgData} />}></Route>
             <Route
-              path="/cardDetail/:id"
+              path=":id"
               element={<CardDetail imgData={imgData} />}
             ></Route>
-            <Route path="/cards" element={<Cards imgData={imgData} />}></Route>
           </Routes>
         </div>
       </Router>
