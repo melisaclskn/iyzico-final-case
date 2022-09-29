@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { Link } from "react-router-dom";
+import MoreButton from "../MoreButton/MoreButton";
+import './Card.css'
 
 function Card({ name, key, id, model, hyperdrive_rating, imgData }) {
   return (
@@ -15,9 +17,7 @@ function Card({ name, key, id, model, hyperdrive_rating, imgData }) {
         <p className="card-text">Model : {model}</p>
         <p className="card-text">Hyperdrive Rating : {hyperdrive_rating}</p>
         <Link to={`/${id}`}>
-          <button className="card-button">
-            <span>More... {name}</span>
-          </button>
+          <MoreButton />
         </Link>
       </div>
     </div>

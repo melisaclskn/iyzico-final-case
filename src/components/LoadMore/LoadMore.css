@@ -1,0 +1,10 @@
+/*Load More button start */
+.button-more{
+    padding: 2em;
+  }
+  .button-more button{
+    width:100%;
+    height: 100px;
+  }
+  /*Load More button end */
+  
