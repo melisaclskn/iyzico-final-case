@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 import { getImg } from "./services/api";
-import CardDetail from "./components/CardDetail/index";
+import CardDetail from "./components/CardDetail/CardDetail";
 import Cards from "./components/Cards/Cards";
 import Header from "./components/Header/Header";
 function App() {
