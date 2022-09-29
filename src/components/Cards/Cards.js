@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import { API } from "../../constants";
 import {
   getImg,
@@ -8,8 +9,10 @@ import {
 } from "../../services/api";
 import Card from "../Card/Card";
 import SearchBar from "../SearchBar/SearchBar";
-import LoadMore from "../LoadMore/index";
+import LoadMore from "../LoadMore/LoadMore";
+import LoadingCards from "../LoadingCards/LoadingCards";
 import "../../styles/style.css";
+
 
 function Cards() {
   const [starships, setStarships] = useState([]);
@@ -68,8 +71,8 @@ function Cards() {
       />
 
       <div className="cards-container card-columns">
-        {isLoading && <p className="loading">Loading...</p>}
-        <div>
+        {isLoading && <LoadingCards/>}
+        <>
           {searchInput.length > 1
             ? filteredResults.map((starship, key) => {
                 let result = starship?.url?.replace(`${API}`, "");
@@ -99,9 +102,10 @@ function Cards() {
                   />
                 );
               })}
-        </div>
-        {buttonVisible && !isLoading && <LoadMore loadMore={loadMore} />}
+        </>
+       
       </div>
+      <div className="button-more">{buttonVisible && !isLoading && <LoadMore loadMore={loadMore} />}</div>
     </>
   );
 }
