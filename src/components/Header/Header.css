@@ -1,0 +1,19 @@
+/*Header Start*/
+.header{
+    display: inline-block;
+    background-color: rgb(158, 172, 172);
+    height: 3em;
+    position:relative;
+    width: 100%;
+  }
+  .header-title{
+    display: flex;
+    font-size: 2em;
+    width: 100%;
+    color:aliceblue
+  }
+  .stciky{
+    position: fixed;
+    width: 100%;
+  }
+  /*Header End*/

@@ -1,5 +1,5 @@
 import React from "react";
-import './style.css'
+import './SearchBar.css'
 // eslint-disable-next-line react/prop-types
 function SearchBar({setSearchInput,searchInput,allStarships,setFilteredResults,starships}) {
   const searchItems = (searchValue) => {

@@ -83,19 +83,20 @@ img .left{
 
 .property{
     padding-top : 15px;
-	font-size : 1.3rem;
+	font-size : 1.2rem;
 	color : #4B4B4B;
 };
 	
-
+.property .property-title{
+  color:#794040af;
+  font-size : 2rem;
+}
 .author{
     background-color : #9ECAFF;
 	height : 30px;
 	width : 110px;
 	border-radius : 20px;
 }
-	
-
 .author img{
     padding-top : 5px;
 	margin-left : 10px;

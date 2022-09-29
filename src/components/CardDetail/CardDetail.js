@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getStarshipsFromId } from "../../services/api";
+import LoadingCard from "../LoadingCard/LoadingCard";
 import "./CardDetail.css";
 function CardDetail({ imgData }) {
   const { id } = useParams();
@@ -21,12 +22,15 @@ function CardDetail({ imgData }) {
 
   return (
     <div>
+        
       <div className="fond">
+        
         <span className="span2">Starwars</span>
       </div>
-      <div className="card-detail">
+      {isLoading && <LoadingCard/>}
+      {!isLoading &&  <div className="card-detail">
         <div className="thumbnail">
-          {isLoading && <p className="loading">Loading...</p>}
+       
           {imgData.map((imgData, key) =>
             detailShips.name === imgData.name ? (
               <img src={imgData.img} width="100px" height="100px" id={key} />
@@ -34,22 +38,25 @@ function CardDetail({ imgData }) {
           )}
         </div>
         <div className="right">
-          <div className="property">name {detailShips.name}</div>
-          <div className="property">model {detailShips.model}</div>
-          <div className="property">passengers {detailShips.passengers}</div>
           <div className="property">
-            max_atmosphering_speed {detailShips.max_atmosphering_speed}
+            <span className="property-title">Name : </span>
+            {detailShips.name}</div>
+          <div className="property"> <span className="property-title">Name : </span>Model : {detailShips.model}</div>
+          <div className="property">Passengers : {detailShips.passengers}</div>
+          <div className="property">
+            Max Atmosphering Speed : {detailShips.max_atmosphering_speed}
           </div>
-          <div className="property">crew {detailShips.crew}</div>
+          <div className="property">Crew : {detailShips.crew}</div>
           <div className="property">
-            manufacturer {detailShips.manufacturer}
+            Manufacturer : {detailShips.manufacturer}
           </div>
           <div className="property">
-            cargo_capacity {detailShips.cargo_capacity}
+            Cargo Capacity : {detailShips.cargo_capacity}
           </div>
         </div>
         <div className="card-detail-name">{detailShips.name}</div>
-      </div>
+      </div>}
+     
     </div>
   );
 }
