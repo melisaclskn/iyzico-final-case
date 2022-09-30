@@ -3,28 +3,38 @@
     height: 3em;
     position:relative;
     width: 100%;
+    padding: 30px;
   }
 .search-box{
+  position: relative;
   width: 100%;
   display: flex;
+  padding:10px;
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-color: blue;
 }
 .search-box input{
-  border: none;
-  border-radius: 20px;
-}
-.search-box i{
-  font-size: 1.5em;
-}
-.search-box  i {
   position: absolute;
+  border-bottom: 4px solid grey;
+  border-top:none;
+  background-color: transparent;
+  border-left:none;
+  border-right:none;
+  padding: 10px;
+  font-size: 30px;
+}
+.search-box input, select,textarea{
+  color:rgb(151, 151, 151)  ;
 }
 .search-box input:focus{
   outline: none;
 }
+.search-box input::placeholder {
+  color: rgb(183, 183, 183);
+
+}
 .search-box input:focus::placeholder {
-  color: transparent;
+  color: rgba(128, 128, 128, 0.314);
+
 }

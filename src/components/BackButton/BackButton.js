@@ -1,11 +1,14 @@
-import React from 'react'
-import './BackButton.css'
-function BackButton() {
-  return (
-    <div>
-       hello
-    </div>
-  )
-}
+import React from "react";
+import "./BackButton.css";
+import { useNavigate } from "react-router-dom";
 
-export default BackButton
+function BackButton() {
+  const history = useNavigate();
+  return (
+      <button className="back-btn" onClick={() => history(-1)}>
+        Go back
+      </button>
+   
+  );
+}
+export default BackButton;

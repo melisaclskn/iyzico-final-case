@@ -1,16 +1,28 @@
 /*Header Start*/
 .header{
-    display: inline-block;
-    background-color: rgb(158, 172, 172);
-    height: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    background-color: #000;
+    height: 4em;
     position:relative;
     width: 100%;
+    opacity: 0.8;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('https://wallpaperaccess.com/full/634128.jpg');
+    /* background: #fff url('https://www.teahub.io/photos/full/92-929443_neon-star-wars-wallpapers-4k.jpg')  center / contain  no-repeat !important; */
+    /* background: url('https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    */
   }
   .header-title{
     display: flex;
+    justify-content: center;
+    position: absolute;
     font-size: 2em;
     width: 100%;
-    color:aliceblue
+    color:aliceblue;
   }
   .stciky{
     position: fixed;

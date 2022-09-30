@@ -19,9 +19,10 @@
     flex-direction: column;
     height: 100%;
     background-color: #fff;
+    opacity: 0.9;
   }
   .card-body:hover{
-    opacity: 0.9;
+    opacity: 1;
   }
   .card-image{
     width:100%;

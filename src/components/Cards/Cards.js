@@ -105,7 +105,9 @@ function Cards() {
         </>
        
       </div>
-      <div className="button-more">{buttonVisible && !isLoading && <LoadMore loadMore={loadMore} />}</div>
+      <div className="button-more">
+        {buttonVisible && !isLoading && <LoadMore loadMore={loadMore} />}
+      </div>
     </>
   );
 }

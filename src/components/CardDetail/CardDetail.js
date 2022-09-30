@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getStarshipsFromId } from "../../services/api";
 import LoadingCard from "../LoadingCard/LoadingCard";
+import BackButton from "../BackButton/BackButton";
 import "./CardDetail.css";
 function CardDetail({ imgData }) {
   const { id } = useParams();
@@ -24,7 +25,9 @@ function CardDetail({ imgData }) {
     <div>
         
       <div className="fond">
-        
+     
+        <BackButton/>
+      
         <span className="span2">Starwars</span>
       </div>
       {isLoading && <LoadingCard/>}

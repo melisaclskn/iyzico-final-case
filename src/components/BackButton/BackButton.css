@@ -1,7 +1,12 @@
-.back{
-  
-  background-color: rgb(255, 89, 0);
-  height: 100px;
-  position:relative;
-  width: 100%;
+.back-container{
+  position: relative;
 }
+.back-btn{
+  position: absolute;
+  background-color: rgb(255, 89, 0);
+  position:relative;
+  width: 20%;
+}
+/* .back{
+  width:10em;
+} */
