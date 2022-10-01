@@ -7,6 +7,7 @@ import { getImg } from "./services/api";
 import CardDetail from "./components/CardDetail/CardDetail";
 import Cards from "./components/Cards/Cards";
 import Header from "./components/Header/Header";
+import './styles/style.css'
 function App() {
   const [imgData, setImgData] = useState([]);
   useEffect(() => {
@@ -22,7 +23,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Cards imgData={imgData} />}></Route>
             <Route
-              path=":id"
+              path="cardDetail/:id"
               element={<CardDetail imgData={imgData} />}
             ></Route>
           </Routes>

@@ -1,12 +1,30 @@
-.back-container{
+.wrapper-back {
   position: relative;
+  padding: 3px;
+  opacity: 0.8;
+  width: 90px;
 }
-.back-btn{
+.wrapper-back:hover{
+  cursor: pointer;
+}
+.back-btn {
+
   position: absolute;
-  background-color: rgb(255, 89, 0);
-  position:relative;
-  width: 20%;
+  border-radius: 10px;
+  border: 1px solid grey;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('https://wallpaperaccess.com/full/634128.jpg');
+  position: relative;
+  width: 100%;
+  
 }
-/* .back{
-  width:10em;
-} */
+.wrapper-back :hover{
+  opacity: 0.9;
+}
+
+.back-btn i {
+  font-size: 1.5em;
+  color:rgb(203, 203, 203);
+}

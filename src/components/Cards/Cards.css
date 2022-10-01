@@ -1,0 +1,27 @@
+.cards-container{
+    display: grid;
+    background-color: #353B3F;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    flex-direction: column;
+    padding: 30px;
+  }
+  @media screen and (max-width: 1400px) {
+    .cards-container {
+      grid-template-columns:  1fr 1fr 1fr 1fr;
+    }
+  }
+  @media screen and (max-width: 1100px) {
+    .cards-container {
+      grid-template-columns:  1fr 1fr 1fr;
+    }
+  }
+  @media screen and (max-width: 940px) {
+    .cards-container {
+      grid-template-columns:  1fr 1fr;
+    }
+  }
+  @media screen and (max-width: 670px) {
+    .cards-container {
+      grid-template-columns:1fr;
+    }
+  }

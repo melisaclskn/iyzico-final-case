@@ -12,7 +12,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import LoadMore from "../LoadMore/LoadMore";
 import LoadingCards from "../LoadingCards/LoadingCards";
 import "../../styles/style.css";
-
+import "./Cards.css";
 
 function Cards() {
   const [starships, setStarships] = useState([]);
@@ -71,7 +71,7 @@ function Cards() {
       />
 
       <div className="cards-container card-columns">
-        {isLoading && <LoadingCards/>}
+        {isLoading && <LoadingCards />}
         <>
           {searchInput.length > 1
             ? filteredResults.map((starship, key) => {
@@ -103,7 +103,6 @@ function Cards() {
                 );
               })}
         </>
-       
       </div>
       <div className="button-more">
         {buttonVisible && !isLoading && <LoadMore loadMore={loadMore} />}
