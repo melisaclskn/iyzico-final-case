@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getStarshipsFromId } from "../../services/api";
-import LoadingCard from "../LoadingCard/LoadingCard";
-import BackButton from "../BackButton/BackButton";
+import LoadingCard from "../../components/LoadingCard/LoadingCard";
+import BackButton from "../../components/BackButton/BackButton";
 import "./CardDetail.css";
 function CardDetail({ imgData }) {
   const { id } = useParams();

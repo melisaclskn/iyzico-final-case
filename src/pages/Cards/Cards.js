@@ -7,10 +7,10 @@ import {
   getStarshipsAPI,
   getAllStarships,
 } from "../../services/api";
-import Card from "../Card/Card";
-import SearchBar from "../SearchBar/SearchBar";
-import LoadMore from "../LoadMore/LoadMore";
-import LoadingCards from "../LoadingCards/LoadingCards";
+import Card from "../../components/Card/Card";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import LoadMore from "../../components/LoadMore/LoadMore";
+import LoadingCards from "../../components/LoadingCards/LoadingCards";
 import "../../styles/style.css";
 import "./Cards.css";
 
