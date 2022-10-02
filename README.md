@@ -18,14 +18,20 @@ In this project i fetch starwars starships data from https://swapi.dev/api/stars
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ##Screenshots
+
+### Starships Listing Page 
 ![home](./screenshots/home-starwars.PNG)
 
+### Starships And Load More Button
 ![load more button](./screenshots/load-more.png)
 
+### Search Page
 ![searching](./screenshots/search.png)
 
+### Starships Detail Page
 ![detail page](./screenshots/detail.png)
 
-![responsive](./screenshots/responsive.png)
+### Responsive Page
+![responsive page](./screenshots/responsive.PNG)
 
 
