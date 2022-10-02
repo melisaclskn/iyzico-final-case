@@ -7,11 +7,16 @@ function SearchBar({setSearchInput,searchInput,allStarships,setFilteredResults,s
     if (searchInput !== "") {
       // eslint-disable-next-line react/prop-types
       const filteredData = allStarships.filter((item) => {
-        return Object.values(item)
-          .join("")
-          .toLowerCase()
-          // eslint-disable-next-line react/prop-types
-          .includes(searchInput.toLowerCase());
+        return Object.values(item.name)
+        .join("")
+        .toLowerCase()
+        // eslint-disable-next-line react/prop-types
+        .includes(searchInput.toLowerCase()) || 
+        Object.values(item.hyperdrive_rating)
+        .join("")
+        .toLowerCase()
+        // eslint-disable-next-line react/prop-types
+        .includes(searchInput.toLowerCase());
       });
       setFilteredResults(filteredData);
     } else {
